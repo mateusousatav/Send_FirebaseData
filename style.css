@@ -45,3 +45,15 @@ input{
     margin: 4px 2px;
     cursor: pointer;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px dashed white;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px dashed white;
+}
