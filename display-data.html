@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="orderList"></ul>
+
+    <script type="module">
+        import { getFirestore, collection, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js';
+        const list = document.getElementById("orderList");
+
+        const db = getDatabase();
+
+
+        const querySnapshot = getDocs(collection(db, "orders"));
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            const li = document.createElement("li");
+            li.textContent = data.name + " ordered " + data.item;
+
+            list.appendChild(li);
+        });
+    </script>
+</body>
+</html>

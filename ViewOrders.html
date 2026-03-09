@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="main.css" rel="stylesheet">
+        <title>View Orders</title>
+    </head>
+    <body>
+        <h2>My Orders</h2>
+        <p id="userStatus">Checking login status...</p>
+        <div class="form_container">
+            <button id="backBtn" class="black_button">Back to Place Order</button>
+            <button id="logoutBtn" class="black_button">Logout</button>
+        </div>
+        
+        <div id="ordersContainer" class="order-container">
+            <p id="loadingMsg">Loading orders...</p>
+        </div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Edit Order</h3>
+                <form id="editForm">
+                    <label for="editItem">Item:</label><br>
+                    <input type="text" id="editItem" name="editItem" required><br>
+                    <label for="editQuantity">Quantity:</label><br>
+                    <input type="number" id="editQuantity" name="editQuantity" min="1" required><br>
+                    <label for="editTotalPrice">Total Price:</label><br>
+                    <input type="number" id="editTotalPrice" name="editTotalPrice" step="0.01" min="0" required><br><br>
+                    <button type="submit" class="black_button">Update Order</button>
+                    <button type="button" class="black_button" onclick="document.getElementById('editModal').style.display='none'">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <script type="module" src="ViewOrders.js"></script>
+    </body>
+</html>
